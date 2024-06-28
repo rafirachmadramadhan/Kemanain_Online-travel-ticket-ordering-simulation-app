@@ -1,0 +1,687 @@
+#:import utils kivy.utils
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+
+MDScreen:
+    name: "OpeningScreen"
+    on_enter:
+    	self.ids.progress.start()
+    MDBoxLayout:
+        MDFloatLayout:
+            FitImage:
+                source:'baru.png'
+                allow_stretch: True
+                anim_reset: True
+            BoxLayout:
+                pos_hint:{'center_y':.2, 'center_x':.5}
+                padding: "10dp"
+                size_hint_x: .6
+                #MDSpinner:
+#		            id: spinner
+#		            size_hint: None, None
+#		            size: "46dp", "46dp"
+#		            pos_hint: {"center_x": .5}
+#					active:True
+                MDProgressBar:
+                    color: utils.get_color_from_hex("#A4B3E2")
+                    id: progress
+                    orientation: "horizontal"
+                    type: "indeterminate"
+                    #running_duration: 1.5
+                    #catching_duration: 1
+
+<Walktr>:
+	name:"walktr"  
+	MDFloatLayout:
+	    md_bg_color: 1,1,1,1
+	    iorientation:"vertical"
+	    Carousel:
+	        id: carousel
+	        #scroll_timeout: 0 
+	        MDBoxLayout:
+	            FitImage:
+	                source: "w1.png"
+	                #post_hint: {"center_x": .0, "center_y": .7}
+	                #size_hint: 1, .6
+	
+	        MDBoxLayout:
+	            FitImage:
+	                source: "w2.png"
+	                #post_hint: {"center_x": .5, "center_y": .7}
+	                #size_hint: 1, .6
+	      
+	        MDBoxLayout:
+	            FitImage:
+	                source: "w3.png"
+	                #post_hint: {"center_x": .5, "center_y": .7}
+	                #size_hint: 1, .6
+	                
+	        MDBoxLayout:
+	            FitImage:
+	                source: "w4.png"
+	                #post_hint: {"center_x": .5, "center_y": .7}
+	                #size_hint: 1, .6
+	                
+	    MDIconButton:
+	        icon: "arrow-right"
+	        #md_bg_color: 0,0,0,1
+	        text:"next"
+	        theme_text_color: "Custom"
+	        text_color: 1,1,1,1
+	        pos_hint: {"center_x": .89, "center_y": .08}
+	        on_release: root.next()
+	    MDIconButton:
+	        icon: "arrow-left"
+	        imd_bg_color: 0,0,0,1
+	        text:"next"
+	        theme_text_color: "Custom"
+	        text_color: 1,1,1,1
+	        pos_hint: {"center_x": .11, "center_y": .08}
+	        on_release: root.prev()
+	    MDRoundFlatButton:
+	    	text: "          EXPLORE NOW          "
+	    	text_color: 1,1,1,1
+	    	line_color: 1, 1, 1, 1
+	    	#size_hint_x: .5
+	    	pos_hint: {"center_x": .5, "center_y": .08}
+	    	on_release: root.tomen()
+	    	
+	    	
+
+<MainScreen>:
+	on_enter:
+    	self.ids.po.set_current(1) #letak swiper pas muncul
+	MDScreen:
+	    name: "MainScreen"  
+	    MDScreen:
+
+		    MDBottomNavigation:
+		        panel_color:  get_color_from_hex("#A4B3E2")
+		        text_color_active: get_color_from_hex("#fafafa")
+		        text_color_normal: get_color_from_hex("#D0DCFF")
+		
+		        MDBottomNavigationItem:
+		            name: 'screen 1'
+		            text: 'Home'
+		            icon: 'home-outline'
+					
+					FitImage:
+						source: "dbbaru.png"
+					BoxLayout:
+					    orientation:"vertical"
+					    BoxLayout:
+			                size_hint_y: .4
+			                MDSwiper:
+			                	id: po
+						        size_hint_y: 1
+						        height: root.height - dp(40) #jarak atas bawah
+						        y: root.height - self.height - dp(20) #untuk elevation
+						        MDSwiperItem: 
+						            padding: [0,30,0,0] #jarak atas 30
+						            MDCard:
+						                orientation:'vertical'
+										radius: 50
+										elevation: 0 #bayangan
+						                FitImage:
+						                    source: "111.png"
+						                    #size_hint_y:.8
+						                    radius: [20,]
+						                    allow_stretch: True
+						                    keep_ratio: False                
+						                #MDLabel:
+#						                    text: "Image 1"
+#						                    font_size: 25
+#						                    halign: "center"
+#						                    size_hint_y: None
+#						                    height: self.texture_size[1]
+#						                    pos_hint: {"center_y": .5}
+#						                    theme_text_color: "Primary"
+						                    
+						        MDSwiperItem:
+						            padding: [0,30,0,0]
+						            MDCard:
+						                orientation:'vertical'
+										radius: 50
+										elevation: 0
+						                FitImage:
+						                    source: "222.png"
+						                    radius: [20,]
+						                    #size_hint_y:.8
+						                    allow_stretch: True
+						                    keep_ratio: False         
+						                #MDLabel:
+#						                    text: "Image 1"
+#						                    font_size: 25
+#						                    halign: "center"
+#						                    size_hint_y: None
+#						                    height: self.texture_size[1]
+#						                    pos_hint: {"center_y": .5}
+#						                    theme_text_color: "Primary"
+
+						        MDSwiperItem:
+						            padding: [0,30,0,0]
+						            MDCard:
+						                #size_hint:1,1
+						                orientation:'vertical'
+										radius: 50
+										elevation: 0
+						                FitImage:
+						                    source: "333.png"
+						                    radius: [20,]
+						                    #size_hint_y:.8
+						                    #size_hint:None,None
+						                    allow_stretch: True
+						                    keep_ratio: False                
+						                #MDLabel:
+#						                    text: "Image 3"
+#						                    font_size: 25
+#						                    halign:"center"
+#						                    size_hint_y: None
+#						                    height: self.texture_size[1]
+#						                    pos_hint: {"center_y": .5}
+#						                    theme_text_color: "Primary"
+
+			                #MDLabel:
+#				                text: 'INI HOME'
+#				                halign: 'center'
+						BoxLayout:
+						    size_hint_y: .6
+						    orientation:"vertical"
+						    BoxLayout:
+						    	BoxLayout:
+						    		orientation:"vertical"
+						    		#membuat button untuk pesawat
+									BoxLayout:
+							    		MDCard:
+							    		    md_bg_color:get_color_from_hex("#FAFAFA")
+							    		    #size_hint:1,1
+							                orientation:'vertical'
+											elevation: 0
+							                MDIconButton:
+							                	icon:"pesawat.png" 
+							                	pos_hint: {"center_x": .5, "center_y": .5}
+							                	user_font_size: "32px"
+							                	on_release:root.ToPesawat()
+									    	MDLabel:
+							                    text: "Plane"
+							                    #font_size: 25
+							                    halign: "center"
+							                    size_hint_y: None
+							                    height: self.texture_size[1]
+							                    pos_hint: {"center_y": .5}
+							                    theme_text_color: "Custom"
+							                    text_color: get_color_from_hex("#A4B3E2")
+							        #membuat button untuk bus            
+							        BoxLayout:
+							            MDCard:
+							    		    md_bg_color:get_color_from_hex("#FAFAFA")
+							    		    #size_hint:1,1
+							                orientation:'vertical'
+											elevation: 0
+							                MDIconButton:
+							                	icon: "bus.png"  
+							                	pos_hint: {"center_x": .5, "center_y": .5}
+							                	user_font_size: "32px"
+							                	on_release:root.callback()
+									    	MDLabel:
+							                    text: "Bus"
+							                    #font_size: 25
+							                    halign: "center"
+							                    size_hint_y: None
+							                    height: self.texture_size[1]
+							                    pos_hint: {"center_y": .5}
+							                    theme_text_color: "Custom"
+							                    text_color: get_color_from_hex("#A4B3E2")      
+						    	BoxLayout:
+						    		orientation:"vertical"
+						    		BoxLayout:
+							    		MDCard:
+							    		    md_bg_color:get_color_from_hex("#FAFAFA")
+							    		    #size_hint:1,1
+							                orientation:'vertical'
+											elevation: 0
+							                MDIconButton:
+							                	icon: "kereta.png"  
+							                	pos_hint: {"center_x": .5, "center_y": .5}
+							                	user_font_size: "32px"
+							                	on_release:root.callback()
+									    	MDLabel:
+							                    text: "Train"
+							                    #font_size: 25
+							                    halign: "center"
+							                    size_hint_y: None
+							                    height: self.texture_size[1]
+							                    pos_hint: {"center_y": .5}
+							                    theme_text_color: "Custom"
+							                    text_color: get_color_from_hex("#A4B3E2")
+							        BoxLayout:
+							            MDCard:
+							    		    md_bg_color:get_color_from_hex("#FAFAFA")
+							    		    #size_hint:1,1
+							                orientation:'vertical'
+											elevation: 0
+							                MDIconButton:
+							                	icon: "kapal.png"  
+							                	pos_hint: {"center_x": .5, "center_y": .5}
+							                	user_font_size: "32px"
+							                	on_release:root.callback()
+									    	MDLabel:
+							                    text: "Ship"
+							                    #font_size: 25
+							                    halign: "center"
+							                    size_hint_y: None
+							                    height: self.texture_size[1]
+							                    pos_hint: {"center_y": .5}
+							                    theme_text_color: "Custom"
+							                    text_color: get_color_from_hex("#A4B3E2")
+						    	BoxLayout:
+						    		orientation:"vertical"
+						    		BoxLayout:
+							    		MDCard:
+							    		    md_bg_color:get_color_from_hex("#FAFAFA")
+							    		    #size_hint:1,1
+							                orientation:'vertical'
+											elevation: 0
+							                MDIconButton:
+							                	icon: "hotel.png"  
+							                	pos_hint: {"center_x": .5, "center_y": .5}
+							                	user_font_size: "32px"
+							                	on_release:root.callback()
+									    	MDLabel:
+							                    text: "Hotel"
+							                    #font_size: 25
+							                    halign: "center"
+							                    size_hint_y: None
+							                    height: self.texture_size[1]
+							                    pos_hint: {"center_y": .5}
+							                    theme_text_color: "Custom"
+							                    text_color: get_color_from_hex("#A4B3E2")
+							        BoxLayout:
+							            MDCard:
+							    		    md_bg_color:get_color_from_hex("#FAFAFA")
+							    		    #size_hint:1,1
+							                orientation:'vertical'
+											elevation: 0
+							                MDIconButton:
+							                	icon: "vila.png"  
+							                	pos_hint: {"center_x": .5, "center_y": .5}
+							                	user_font_size: "32px"
+							                	on_release:root.callback()
+									    	MDLabel:
+							                    text: "Villa"
+							                    #font_size: 25
+							                    halign: "center"
+							                    size_hint_y: None
+							                    height: self.texture_size[1]
+							                    pos_hint: {"center_y": .5}
+							                    theme_text_color: "Custom"
+							                    text_color: get_color_from_hex("#A4B3E2")							                    
+						    	BoxLayout:
+						    		orientation:"vertical"
+						    		BoxLayout:
+							    		MDCard:
+							    		    md_bg_color:get_color_from_hex("#FAFAFA")
+							    		    #size_hint:1,1
+							                orientation:'vertical'
+											elevation: 0
+							                MDIconButton:
+							                	icon: "mobil.png"  
+							                	pos_hint: {"center_x": .5, "center_y": .5}
+							                	user_font_size: "32px"
+							                	on_release:root.callback()
+									    	MDLabel:
+							                    text: "Car Rental"
+							                    #font_size: 25
+							                    halign: "center"
+							                    size_hint_y: None
+							                    height: self.texture_size[1]
+							                    pos_hint: {"center_y": .5}
+							                    theme_text_color: "Custom"
+							                    text_color: get_color_from_hex("#A4B3E2")							                    
+							        BoxLayout:
+							            MDCard:
+							    		    md_bg_color:get_color_from_hex("#FAFAFA")
+							    		    #size_hint:1,1
+							                orientation:'vertical'
+											elevation: 0
+							                MDIconButton:
+							                	icon: "spa.png"  
+							                	pos_hint: {"center_x": .5, "center_y": .5}
+							                	user_font_size: "32px"
+							                	on_release:root.callback()
+									    	MDLabel:
+							                    text: "Spa"
+							                    #font_size: 25
+							                    halign: "center"
+							                    size_hint_y: None
+							                    height: self.texture_size[1]
+							                    pos_hint: {"center_y": .5}
+							                    theme_text_color: "Custom"
+							                    text_color: get_color_from_hex("#A4B3E2")
+							                    
+						    #Kenapa kosong?		
+						    BoxLayout:
+						    	
+						    	BoxLayout:
+						    		
+						    	BoxLayout:
+		
+		        MDBottomNavigationItem:
+		            name: 'screen 2'
+		            text: 'My Order'
+		            icon: 'ticket-percent-outline'
+					FitImage:
+						source:'order1.png'
+						allow_stretch: True
+		            #MDLabel:
+#		                text: 'INI MY ORDER'
+#		                halign: 'center'
+		
+		        MDBottomNavigationItem:
+		            name: 'screen 3'
+		            text: 'Inbox'
+		            icon: 'inbox-full-outline'
+					FitImage:
+						source:'inbox1.png'
+						allow_stretch: True
+		            MDCard:
+				        orientation: "horizontal"
+				        # ripple_behavior: True #buat apa
+				        on_release: root.tochat()
+				        padding: "8dp"
+				        spacing: "8dp"
+				        size_hint: .9, None
+				        size: self.width, "70dp"
+				        pos_hint: {"center_x": .5, "center_y": .9}
+				        radius: 30
+				        elevation: 10
+				        MDBoxLayout:
+				        	size: "70dp" , "70dp"
+				        	size_hint: None, None
+							pos_hint: {"center_x": .5, "center_y": .5}
+				        	Image:
+				                source:'cscs.png'
+				        MDBoxLayout:
+				            orientation: "vertical"
+					        MDLabel:
+					            text: "Customer Service"
+					            size_hint_y: None
+					            height: self.texture_size[1]
+				
+					        MDSeparator:
+					            height: "1dp"
+					
+					        MDLabel:
+					            text: "have a problem, please contact us!!!"
+					            theme_text_color: "Secondary"
+
+				MDBottomNavigationItem:
+		            name: 'screen 4'
+		            text: 'Account'
+		            icon: 'card-account-details-outline'
+					FitImage:
+						source:'popil.png'
+						allow_stretch: True
+		            MDRoundFlatButton:
+		            	text: "    Sign In    "
+		            	text_color: get_color_from_hex("#A4B3E2")
+		            	line_color: get_color_from_hex("#A4B3E2")
+		            	pos_hint: {"center_x": .5, "center_y": .35}
+		            	on_release: app.callback()
+
+<IconListItem>
+    IconLeftWidget:
+        icon: root.icon
+
+<Pesawat>:
+	MDScreen:
+		name:"Pesawat"
+		#MDTopAppBar:
+#			title: "Pencarian Pesawat"
+#			left_action_items: [["backburger", lambda x: root.bueck()]]
+#			right_action_items: [["dots-vertical", lambda x: root.callback(x)]]
+		FitImage:
+			source: "carip.png"
+		MDBoxLayout:
+			orientation: "vertical"
+			MDTopAppBar:
+			    md_bg_color: get_color_from_hex("#A4B3E2")
+		        title: "Pencarian Pesawat"
+		        left_action_items: [["beck.png", lambda x: root.bueck()]] #Memanggil fungsi dengan argumen
+		        right_action_items:
+		            [["help-circle-outline", lambda x: root.callback(x)]]
+		    #MDBoxLayout:
+		        #size_hint: .8, .7
+		        #MDTextField:
+#			        id: field
+#			        pos_hint: {'center_x': .5, 'center_y': .6}
+#			        size_hint_x: None
+#			        width: "200dp"
+#			        hint_text: "Password"
+			#MDTopAppBar:
+#		        title: "Pencarian Pesawat"
+#		        left_action_items: [["backburger", lambda x: root.bueck()]]
+#		        right_action_items:
+#		            [["dots-vertical", lambda x: root.callback(x)]]
+			MDBoxLayout:
+				#size_hint_y: 0.7
+			MDTextField:
+			    icon_right: "arrow-down-drop-circle-outline"
+			    id: dest_dropdown_item
+			    pos_hint: {'center_x': .5, 'center_y': 8}
+			    size_hint_x: None
+			    width: "320dp"
+			    hint_text: "From"
+			    write_tab: False
+				on_focus: if self.focus: root.display_departure()
+			    #keyboard_mode:'managed'
+			    #on_focus: if self.focus: app.menu.open()
+			#MDBoxLayout:
+			MDTextField:
+			    icon_right: "arrow-down-drop-circle-outline"
+			    id: dest_dropdown_item2
+			    pos_hint: {'center_x': .5, 'center_y': .8}
+			    size_hint_x: None
+			    width: "320dp"
+			    hint_text: "To"
+			    on_focus: if self.focus: root.display_arrival()
+			    #keyboard_mode:'managed'
+			    #on_focus: if self.focus: app.menu.open()
+			#MDBoxLayout:  
+			MDTextField:
+			    icon_right: "arrow-down-drop-circle-outline"
+			    id: dest_dropdown_item3
+			    pos_hint: {'center_x': .5, 'center_y': .8}
+			    size_hint_x: None
+			    width: "270dp"
+			    hint_text: "Class"
+			    on_focus: if self.focus: root.display_class()
+			    #keyboard_mode:'managed'
+			    #on_focus: if self.focus: app.menu.open()
+			MDTextField:
+			    icon_right: "arrow-down-drop-circle-outline"
+			    id: dest_dropdown_item4
+			    pos_hint: {'center_x': .5, 'center_y': .8}
+			    size_hint_x: None
+			    width: "200dp"
+			    hint_text: "Date"
+			    on_focus: if self.focus: root.display_date()
+			    #keyboard_mode:'managed'
+			    #on_focus: if self.focus: app.menu.open()
+		    #MDBoxLayout:
+#		        size_hint: 1, .1
+#		        pos_hint:{'center_y':.5, 'center_x':.5}
+#		        MDRectangleFlatIconButton:
+#		        	text: "Lanjut dulu"
+#		        	md_bg_color: 1, 0, 1, 1
+#		        	on_press: root.tosortp()
+#		        	pos_hint:{'center_y':.5, 'center_x':.5}
+			MDBoxLayout:
+			    size_hint: 1, .1
+		    MDRectangleFlatIconButton:
+		        icon:"cloud-search"
+		        text: "Search"
+		        md_bg_color: get_color_from_hex("#A4B3E2")		
+		        on_press: root.tosortp()
+		        pos_hint:{'center_y':.5, 'center_x':.5}
+		    MDBoxLayout:
+#		        size_hint: 1, .1
+		        	#size_hint: .5,.1
+			#MDLabel:
+#				text: 'INI Nanti Ruang Pencarian Pesawat'
+#				halign: 'center'
+			
+
+<Sortp>:
+	MDScreen:
+		name:"Sortp"
+		MDBoxLayout:
+			orientation: "vertical"
+			MDTopAppBar:
+			    md_bg_color: get_color_from_hex("#A4B3E2")
+		        title: "Pencarian Pesawat"
+		        left_action_items: [["beck.png", lambda x: root.bueck()]]
+		        right_action_items:
+		            [["dots-vertical", lambda x: root.callback(x)]]
+			BoxLayout:
+				MDLabel:
+					text: 'INI'
+					halign: 'center'
+			BoxLayout:
+				MDLabel:
+					text: 'INI'
+					halign: 'center'
+
+	
+<Maine>:
+    name: 'maine'
+    video_list: video_list
+    FitImage:
+    	source: "bgbg.png"
+    
+    BoxLayout:
+        orientation: 'vertical'
+        MDTopAppBar:
+            md_bg_color: get_color_from_hex("#A4B3E2")
+            title: 'pesawat'
+			left_action_items: [["beck.png", lambda x: root.bueck()]]
+			right_action_items:
+				[["sort-ascending", lambda x: root.open_bottom_sheet()]]
+        ScrollView:
+            do_scroll_x: False
+			id: wkwkw
+            BoxLayout:
+                id: video_list
+                orientation: 'vertical'
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: "8dp"
+                padding: "8dp"
+                
+#<ItemForCustomBottomSheet@OneLineIconListItem>
+#    on_press: app.custom_sheet.dismiss()
+#    icon: ""
+
+#    IconLeftWidget:
+#        icon: root.icon
+
+
+<ContentCustomSheet@MDFloatLayout>:
+    id:sat
+    size_hint_y: None
+    height: "300dp"
+    canvas:
+    	Color:
+    		rgb: (0, 0, 0, 1)
+    	RoundedRectangle:
+    	    size: self.size
+    	    pos: self.pos
+    	    radius: [0,0,0,0]
+    FitImage:
+    	source:"up2.png"
+    MDRoundFlatButton:
+    	text: "Checkout"
+    	text_color: 1,1,1,1
+    	line_color: 1, 1, 1, 1
+    	pos_hint: {"center_x": .85, "center_y": .1}
+    	on_release: app.callback()
+    MDRoundFlatButton:
+    	text: "Wishlist"
+    	text_color: 1,1,1,1
+    	line_color: 1, 1, 1, 1
+    	pos_hint: {"center_x": .62, "center_y": .1}
+    	on_release: app.callback()
+
+<Chatcus>:
+    # bot_name: bot_name
+    text_input: text_input
+    chat_list: chat_list
+    name: "chats"
+    MDFloatLayout:
+        MDFloatLayout:
+            md_bg_color: 245/255, 245/255, 245/255, 1
+            size_hint_y: .11
+            pos_hint: {"center_y": .95}
+            orientation:"horizontal"
+            MDLabel:
+                text: "Customer Service"
+                pos_hint: {"center_y": .5,"center_x": .5 }
+                halign: "center"
+                theme_text_color: "Custom"
+                text_color: 53/255, 56/255, 60/255, 1
+            MDIconButton:
+		        icon: "arrow-left"
+		        #imd_bg_color: 0,0,0,1
+		        theme_text_color: "Custom"
+		        #text_color: 1,1,1,1
+		        pos_hint: {"center_x": .1, "center_y": .5}
+		        on_release: root.bueck()
+        ScrollView:
+            size_hint_y: .77
+            pos_hint: {"x": 0, "y": .116}
+            do_scroll_x: False
+            do_scroll_y: True
+            BoxLayout:
+                id: chat_list
+                orientation: 'vertical'
+                size: (root.width, root.height)
+                height: self.minimum_height
+                size_hint: None, None
+                pos_hint: {'top': 10}
+                cols: 1
+                spacing: 5
+                padding: 5
+        MDFloatLayout:
+            md_bg_color: 245/255, 245/255, 245/255, 1
+            size_hint_y: .11
+            MDFloatLayout:
+                size_hint: .8, .75
+                pos_hint: {"center_x": .43, "center_y": .5}
+                canvas:
+                    Color:
+                        rgb: (238/255, 238/255, 238/255, 1)
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [23, 23, 23, 23]
+                TextInput:
+                    id: text_input
+                    hint_text: "Type your message..."
+                    size_hint: 1, None
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    #font_size: "18sp"
+                    height: self.minimum_height
+                    multiline: False
+                    cursor_color: get_color_from_hex("#A4B3E2")
+                    cursor_width: "2sp"
+                    foreground_color: get_color_from_hex("#A4B3E2")
+                    background_color: 0,0,0,0
+                    padding: 15
+                    #font_name: "Poppins"
+            MDIconButton:
+                icon: "send"
+                pos_hint: {"center_x": .91, "center_y": .5}
+                #user_font_size: "18sp"
+                theme_text_color: "Custom"
+                text_color: 1, 1, 1, 1
+                md_bg_color: get_color_from_hex("#A4B3E2")
+                on_release: root.send()
