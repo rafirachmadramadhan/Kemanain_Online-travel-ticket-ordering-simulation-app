@@ -10,17 +10,17 @@ adalah sebuah aplikasi simulasi pada proses pemesanan tiket travel, mulai dari t
 Preview App
 </h2>
 <p align="center">
-  <img width="450%" alt="kemanain" title="kemanain" src="screenshots/1.jpg"/>
-  <img width="45%" alt="kemanain" title="kemanain" src="screenshots/2.jpg"/>
-  <img width="45%" alt="kemanain" title="kemanain" src="screenshots/3.jpg"/>
+  <img width="30%" alt="kemanain" title="kemanain" src="screenshots/1.jpg"/>
+  <img width="30%" alt="kemanain" title="kemanain" src="screenshots/2.jpg"/>
+  <img width="30%" alt="kemanain" title="kemanain" src="screenshots/3.jpg"/>
 
-  <img width="45%" alt="kemanain" title="kemanain" src="screenshots/4.jpg"/>
-  <img width="45%" alt="kemanain" title="kemanain" src="screenshots/5.jpg"/>
-  <img width="45%" alt="kemanain" title="kemanain" src="screenshots/6.jpg"/>
+  <img width="30%" alt="kemanain" title="kemanain" src="screenshots/4.jpg"/>
+  <img width="30%" alt="kemanain" title="kemanain" src="screenshots/5.jpg"/>
+  <img width="30%" alt="kemanain" title="kemanain" src="screenshots/6.jpg"/>
 
-  <img width="45%" alt="kemanain" title="kemanain" src="screenshots/7.jpg"/>
-  <img width="45%" alt="kemanain" title="kemanain" src="screenshots/8.jpg"/>
-  <img width="45%" alt="kemanain" title="kemanain" src="screenshots/9.jpg"/>
+  <img width="30%" alt="kemanain" title="kemanain" src="screenshots/7.jpg"/>
+  <img width="30%" alt="kemanain" title="kemanain" src="screenshots/8.jpg"/>
+  <img width="30%" alt="kemanain" title="kemanain" src="screenshots/9.jpg"/>
 </p>
 
 <h2 align="center">
